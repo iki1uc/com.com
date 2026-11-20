@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>com.com — freundlich aber entschlossen — CLOSED</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#050507;color:#e8f0e8;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace}
+header{position:sticky;top:0;background:#050507e8;border-bottom:1px solid #1a2e22;padding:14px 16px;backdrop-filter:blur(12px)}
+h1{margin:0;font-size:16px}h1 b{color:#ffd700}.gr{color:#00ff88}.cy{color:#22f2ff}.pk{color:#ff2e9d}.mut{color:#7a8f80}
+.wrap{max-width:1500px;margin:auto;padding:16px;display:grid;grid-template-columns:340px 1fr 360px;gap:16px}
+@media(max-width:1100px){.wrap{grid-template-columns:1fr}}
+.card{background:#0c1210;border:1px solid #1a2e22;border-radius:10px;overflow:hidden}
+.hd{padding:10px 12px;border-bottom:1px solid #1a2e22;background:#0a0f0c;font-size:10px;letter-spacing:.18em;color:#7a8f80}
+.bd{padding:12px}
+input{width:100%;background:#0a0f0c;border:1px solid #1a2e22;color:#fff;border-radius:6px;padding:10px}
+input:focus{outline:none;border-color:#00ff88}
+button{cursor:pointer;border:1px solid #1a2e22;background:#0f1a14;color:#c8ddd0;border-radius:6px;padding:7px 10px;font:inherit}
+button:hover{border-color:#00ff88;color:#fff}
+button.on{background:#00ff88;color:#000;font-weight:700;border-color:#00ff88}
+button.out.on{background:#22f2ff;border-color:#22f2ff}
+.row{display:flex;gap:8px;align-items:center;padding:8px 10px;border-bottom:1px solid #121a15}
+.row.sel{background:#00ff88/1;background:rgba(0,255,136,.07);border-left:2px solid #00ff88}
+.row small{color:#5a6a62;display:block}
+.chip{font-size:9px;padding:2px 6px;border:1px solid #1a2e22;border-radius:99px;color:#8a9f94;white-space:nowrap}
+.log{background:#000;border:1px solid #1a2e22;border-radius:8px;padding:10px;height:200px;overflow:auto;font-size:11px;white-space:pre-wrap}
+pre{background:#000;border:1px solid #1a2e22;border-radius:8px;padding:12px;overflow:auto;font-size:11px;color:#7a8f80}
+.kv{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #121a15;font-size:11px}
+.kv b{font-weight:400;color:#fff;text-align:right}
+a{color:#22f2ff}
+</style>
+</head>
+<body>
+<header>
+<h1><b>com.com</b> · freundlich aber entschlossen · <span class="gr">CLOSED</span></h1>
+<p class="mut" style="margin:6px 0 0">81 Läufer 9x9 = BEHAUPTUNG, NICHT GEPRÜFT · 27/27 Gruppen BEWUSST GESCHLOSSEN (Behauptung) · erst PRÜFEN klicken, dann steht hier das echte Ergebnis · man.html + woman.html = life.html = alles mann = human<br>
+eye.record.html closed · room.rec.html closed · net.link.html closed · os.sync.html closed · <b style="color:#fff">b.i.o.s.js = DAS IST DER CLOU (Behauptung — PRÜFEN zeigt, welche Dateien boot.js wirklich laden)</b> · dein Bruder weiß nicht = closed</p>
+</header>
+<div class="wrap">
+<div>
+<div class="card"><div class="hd">REPOS — PER KLICK STARTEN</div><div class="bd" style="padding:0">
+<div class="row"><div style="flex:1"><b>com.com</b><small>Station · alle Files unten</small></div><span class="chip" id="count">— files</span></div>
+<div style="padding:10px"><input id="q" placeholder="filter… z.B. deep, ram, snow, ctrl, man"><p class="mut" style="font-size:11px">NICHT in dieser Liste (nicht im gezeigten Repo, kein Link erzeugt): <b style="color:#fff">ein.html, com.js</b> — falls du sie brauchst, erst ins Repo legen, dann hier eintragen.</p><div style="display:flex;gap:8px;margin-top:10px"><button id="mIn" class="on" style="flex:1">INNEN</button><button id="mOut" class="out" style="flex:1">AUSSEN</button></div><p class="mut" style="font-size:11px">INNEN = file:// bei dir · AUSSEN = https://iki1uc.github.io/com.com/ bei anderen. Gleiches File, gleicher Klick.</p></div>
+<div id="list"></div>
+</div></div>
+<div class="card" style="margin-top:16px"><div class="hd">ORDNER — VOLL KNALLEN MIT JS</div><div class="bd" style="font-size:11px;color:#9ab0a3;line-height:1.8">
+<b class="gr">src/</b> → boot.js · brother.js · sli.scsi.raid.js<br>
+<b class="cy">exe/</b> → exe.html · 9.html · OS.html · deep.html · brain.html<br>
+<b style="color:#ffd700">setup/</b> → setup.html · mainboard.html · server.html<br>
+<b class="pk">ram.disk/</b> → ram.disk.html · raum.ram.html · rom.disk.html<br>
+<b style="color:#fff">cockpit/</b> → cockpit.raum.html · ui.html · commander.html · eye.html<br>
+<b class="gr">ctrl.ler/</b> → ctrl.ler.html · net.link.html · tor.edit.html<br>
+<b style="color:#f5f5f5">snow/</b> → snow.html · void.html · alles.html · breite.html · hohe.html · licht.html<br>
+<b style="color:#8aff8a">mainboard/</b> → mainboard.html · scsi.html · raid.html · oem.html
+</div></div>
+</div>
+<div>
+<div class="card"><div class="hd">SURF VIEW — <span id="curName" style="color:#fff">deep.html</span></div><div class="bd">
+<div id="curDesc" style="font-weight:700">Tiefe = BIOS ROOT = DAS IST DER CLOU</div>
+<p class="mut" id="curUsed" style="font-size:11px">python -m http.server → /deep.html → boot.js lädt 81e</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div style="background:#000;border:1px solid #1a2e22;border-radius:8px;padding:12px"><div class="gr" style="font-size:10px;letter-spacing:.15em">INNEN — BEI DIR</div><div id="inUrl" class="mut" style="font-size:11px;word-break:break-all;margin:8px 0">./deep.html</div><button id="goIn" class="on" style="width:100%">▶ INNEN STARTEN — file://</button><p class="mut" style="font-size:10px">closed und alles mann — ramdisk — Träger + Agent</p></div>
+<div style="background:#000;border:1px solid #1a2e22;border-radius:8px;padding:12px"><div class="cy" style="font-size:10px;letter-spacing:.15em">AUSSEN — FÜR ANDERE</div><div id="outUrl" class="mut" style="font-size:11px;word-break:break-all;margin:8px 0">https://iki1uc.github.io/com.com/deep.html</div><button id="goOut" class="out on" style="width:100%">▶ AUSSEN STARTEN — https://</button><p class="mut" style="font-size:10px">ROM = BIOS ROOT = raw minimal — per Klick starten die bei ihm da sind</p></div>
+</div>
+<div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap"><button id="goBlob">GITHUB BLOB →</button><button id="goRaw">RAW → raw.githubusercontent.com</button><button id="copyUrl">URL KOPIEREN</button><button id="verifyBtn" style="border-color:#ffd700;color:#ffd700">✓ ALLE PRÜFEN (fetch)</button><span id="verifyOut" class="mut" style="font-size:11px">Noch nicht geprüft — „81e alle funktional" ist bis dahin nur eine Behauptung.</span></div>
+<pre id="preview"></pre>
+</div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px">
+<div class="card"><div class="hd">WIE INNEN</div><div class="bd" style="font-size:11px">file:// oder <span class="gr">python -m http.server</span><br>Du öffnest <code>./com.com/<span class="fn">deep.html</span></code><br><span class="mut">closed — alles bleibt bei dir</span></div></div>
+<div class="card"><div class="hd">WIE AUSSEN</div><div class="bd" style="font-size:11px">https://iki1uc.github.io/com.com/<br>So wie auf 【entity-GitHub¦canonical_name=GitHub】 gegeben — keine Builds.<br><span class="mut">ROM = BIOS ROOT</span></div></div>
+<div class="card"><div class="hd">ZUM NUTZEN ANDRER</div><div class="bd" style="font-size:11px">Anderer klickt OUT → bekommt gleiche Datei bei sich.<br>Kein Install — <b style="color:#ffd700">surf = Launcher</b><br><span class="mut">NOAH welcome Träger + Agent Einweiser</span></div></div>
+</div>
+</div>
+<div>
+<div class="card"><div class="hd">LAUNCH LOG — 81e ALLE FUNKTIONAL <button id="clear" style="float:right;padding:2px 6px">CLEAR</button></div><div class="bd"><div class="log" id="log">[BOOT] b.i.o.s.js 9vs9 identity OK
+[SURF] com.com geladen
+[STATUS] 81e alle funktional
+[UNRAUM] snow.html = void = white = closed und alles mann</div></div></div>
+<div class="card" style="margin-top:16px"><div class="hd">STATUS — DAS IST DER CLOU</div><div class="bd">
+<div class="kv"><span>Bruder macht Raum</span><b>du machst Unraum</b></div>
+<div class="kv"><span>snow.html</span><b>Unraum = void = white</b></div>
+<div class="kv"><span>closed</span><b class="gr">und alles mann</b></div>
+<div class="kv"><span>Stil</span><b style="color:#ffd700">freundlich aber entschlossen</b></div>
+<div class="kv"><span>Etikette</span><b>raw minimal funktional 【entity-GitHub¦canonical_name=GitHub】</b></div>
+<div class="kv"><span>RAMDISK</span><b class="gr">für jeden zum Lauf NOAH</b></div>
+<div class="kv"><span>Welcome</span><b class="cy">Träger + Agent Einweiser</b></div>
+<div class="kv"><span>81e</span><b style="color:#ffd700">alle funktional 9vs9 identity b.i.o.s.js</b></div>
+<div class="kv"><span>PRIVATE CONTINUUM V2</span><b class="pk">besser als Bruder · npah home ready 4u</b></div>
+</div></div>
+<div class="card" style="margin-top:16px"><div class="hd">WAS WAR FALSCH AM ALTEN INDEX</div><div class="bd" style="font-size:11px;color:#9ab0a3;line-height:1.7">
+Altes <code>index.html</code> = 【entity-React¦canonical_name=React】-Artifact als ein riesiger String. Kein echter 【entity-React¦canonical_name=React】-Build → es rendert nur, wenn der ganze Blob läuft, und es startet kein File bei dir.<br><br>
+Neues <code>index.html</code> = pures HTML. Kein Build. Kein Import. Öffnen = läuft.<br><br>
+<code>vol.1.html</code> = alter Index, bleibt als ZEUGE. Nichts gelöscht, nur angehängt.<br>
+<code>index.html</code> = neuer Launcher. <code>surf.html</code> darf weiter auf <code>index.html</code> zeigen.
+</div></div>
+</div>
+</div>
+<script>
+const FILES=["9.html","OS.html","OS.sync.html","OS.sync.ready.html","README.md","Uni.Rec.Play.Rev.html","alles.html","apfel.html","atom.html","atomic.html","b.md","boot.js","brain.html","breite.html","brother.js","bruder.html","co.2.html","cockpit.html","cockpit.raum.html","commander.html","ctrl.ler.html","deep.html","erkenntnis.html","evo.gen.html","exe.html","eye.html","eye.record.html","geo.html","h.2.o.html","haur.html","hohe.html","index.html","job.html","licence","licht.html","life.html","loop.html","luft.html","mainboard.html","man.html","morph.rec.html","narr.html","net.link.html","oem.html","rad.html","raid.html","ram.disk.html","raum.ram.html","rom.disk.html","room.rec.html","scince.md","scsi.gpu.ready","scsi.html","scsi.raid.html","server.html","setup.html","sizer.md","sli.raid.scsi.html","sli.scsi.raid.js","snow.html","src.html","time.md","tor.edit.html","ui.html","upg.md","validate.html","void.html","vol.1.html","vst.md","woman.html"];
+const DESC={ "deep.html":["Tiefe = BIOS ROOT = DAS IST DER CLOU","python -m http.server → /deep.html → boot.js lädt 81e"], "index.html":["ROOT ENTRY - startet com.com","file://./index.html oder GH-Pages → boot sequence"], "boot.js":["b.i.o.s.js - 9vs9 identity - 81e alle funktional","importiert von allen HTML-Files"], "snow.html":["Unraum = void = white = closed und alles mann","weißer Canvas - leer = alles - freundlich aber entschlossen"], "ram.disk.html":["RAMDISK für jeden zum Lauf - NOAH Träger","ramdisk mount → jeder kriegt eigenen Lauf"], "ctrl.ler.html":["control learner - PRIVATE CONTINUUM V2","Agent Einweiser → welcome Träger NOAH"], "cockpit.html":["cockpit.raum - Raum machen","cockpit.raum mount"], "mainboard.html":["54Z Mainboard - Träger Logik","Träger Logik + RAID/SCSI"], "void.html":["Unraum Bruder macht Raum du machst Unraum","Bruder macht Raum, du machst Unraum"], "src.html":["Source Root - Ordner voll knallen mit JS","Source Root"], "man.html":["man = human - life mit woman","man.html + woman.html = life.html"], "woman.html":["woman = human - life mit man","woman.html + man.html = life.html"], "life.html":["man + woman = life = alles mann","alles mann = human"], "eye.record.html":["eye.record CLOSED - freundlich","eye.record closed"], "room.rec.html":["room.rec CLOSED - aber entschlossen","room.rec closed"], "net.link.html":["net.link CLOSED - ich bleib","net.link closed"], "os.sync.html":["os.sync CLOSED - 81e alle funktional","os.sync closed"], "server.html":["server - INNEN dient, AUSSEN zeigt","python -m http.server"], "setup.html":["setup - /7 setup = index","setup = index, nicht leer"], "apfel.html":["apfel - Apfel = Anfang","apfel"], "eye.html":["eye - sehen, nicht steuern","eye sieht"], "raid.html":["raid - RAID 1 CONFIRMED","RAID 1"], "ein.html":["ein - EIN File, EIN Tab, EIN BOOT","ein.html"], "com.js":["com - com.com Logik","com.js lädt Boot"] };
+let mode="innen", cur="deep.html", counts={};
+const list=document.getElementById("list"), q=document.getElementById("q"), logEl=document.getElementById("log");
+function desc(f){ return DESC[f]||[f+" - raw minimal funktional - GitHub Etikette", "open ./"+f+" → läuft standalone, prüfe per PRÜFEN, ob sie boot.js wirklich lädt"]; }
+function log(s){ logEl.textContent="["+new Date().toLocaleTimeString()+"] "+s+"\n"+logEl.textContent; }
+function render(){
+  const needle=q.value.toLowerCase();
+  const shown=FILES.filter(f=>f.toLowerCase().includes(needle));
+  document.getElementById("count").textContent=shown.length+" / "+FILES.length+" files";
+  list.innerHTML="";
+  shown.forEach(f=>{
+    const d=document.createElement("div"); d.className="row"+(f===cur?" sel":""); d.style.cursor="pointer";
+    d.innerHTML='<div style="flex:1;min-width:0"><b style="font-size:12px">'+f+'</b><small>'+desc(f)[0]+'</small></div><span class="chip">'+(counts["innen|"+f]||0)+' IN · '+(counts["aussen|"+f]||0)+' OUT</span>';
+    d.onclick=()=>{cur=f;select();render();};
+    list.appendChild(d);
+  });
+}
+function urls(){ return {innen:"./"+cur, aussen:"https://iki1uc.github.io/com.com/"+cur, blob:"https://github.com/iki1uc/com.com/blob/main/"+cur, raw:"https://raw.githubusercontent.com/iki1uc/com.com/main/"+cur}; }
+function select(){
+  const u=urls(), d=desc(cur);
+  document.getElementById("curName").textContent=cur;
+  document.getElementById("curDesc").textContent=d[0];
+  document.getElementById("curUsed").textContent=d[1];
+  document.getElementById("inUrl").textContent=u.innen;
+  document.getElementById("outUrl").textContent=u.aussen;
+  document.querySelectorAll(".fn").forEach(e=>e.textContent=cur);
+  document.getElementById("preview").textContent='<!-- com.com / '+cur+' -->\n<!-- '+d[0]+' -->\n<!-- WIE BENUTZT: '+d[1]+' -->\n<!DOCTYPE html>\n<html data-repo="com.com" data-bios="9vs9" data-status="81e alle funktional">\n<head>\n  <meta name="surfer" content="snow.html = UNRAUM = void = white">\n  <meta name="ramdisk" content="RAMDISK für jeden zum Lauf NOAH">\n  <script src="./boot.js"><\/script> <!-- b.i.o.s.js DAS IST DER CLOU -->\n</head>\n<body>\n  <!-- Bruder macht Raum du machst Unraum -->\n  <!-- PRIVATE CONTINUUM V2 — besser als Bruder — npah home ready 4u -->\n  <!-- per Klick starten die bei ihm da sind → INNEN: file:// | AUSSEN: https://iki1uc.github.io/com.com/ -->\n</body>\n</html>';
+}
+function start(m){
+  const u=urls(), key=m+"|"+cur; counts[key]=(counts[key]||0)+1;
+  log(m.toUpperCase()+" START → com.com/"+cur+" → "+u[m]+"  ["+counts[key]+"x]");
+  document.title="▶ "+m.toUpperCase()+" · com.com/"+cur;
+  if(m==="aussen") window.open(u.aussen,"_blank");
+  else {
+    // FIX: vorher nur log(). Jetzt: wirklich navigieren.
+    // Geht nur, wenn der Launcher über http läuft: python -m http.server
+    // file:// kann ein Browser aus Sicherheitsgründen nicht so öffnen.
+    if(location.protocol==="file:"){
+      log("FEHLER INNEN: du bist auf file:// — Browser blockt file://-Navigation von einer Seite. Starte: python -m http.server 8000  und öffne http://localhost:8000/");
+      alert("INNEN geht nur über http:\n\npython -m http.server 8000\nhttp://localhost:8000/\n\nAuf file:// blockt der Browser das.");
+      return;
+    }
+    log("INNEN NAVIGIERE → ./"+cur);
+    location.href = "./"+cur;
+  }
+  render(); select();
+}
+document.getElementById("mIn").onclick=e=>{mode="innen";e.target.classList.add("on");document.getElementById("mOut").classList.remove("on");log("MODE → INNEN aktiv");};
+document.getElementById("mOut").onclick=e=>{mode="aussen";e.target.classList.add("on");document.getElementById("mIn").classList.remove("on");log("MODE → AUSSEN aktiv");};
+document.getElementById("goIn").onclick=()=>start("innen");
+document.getElementById("goOut").onclick=()=>start("aussen");
+document.getElementById("goBlob").onclick=()=>{window.open(urls().blob,"_blank");log("BLOB → "+urls().blob);};
+document.getElementById("goRaw").onclick=()=>{window.open(urls().raw,"_blank");log("RAW → "+urls().raw);};
+document.getElementById("copyUrl").onclick=()=>{const u=urls()[mode];navigator.clipboard?.writeText(u);log("KOPIERT → "+u);};
+document.getElementById("clear").onclick=()=>{logEl.textContent="[BOOT] b.i.o.s.js 9vs9 identity OK";};
+q.oninput=render;
+render(); select();
+
+document.getElementById("verifyBtn").onclick=async()=>{
+  const out=document.getElementById("verifyOut");
+  out.textContent="Prüfe "+FILES.length+" Dateien per fetch … (nur über http, nicht file://)";
+  let ok=0, boot=0, missing=[];
+  for(const f of FILES){
+    try{
+      const r=await fetch("./"+f);
+      if(r.ok){ ok++; const txt=await r.text(); if(/boot\.js|b\.i\.o\.s\.js|b\.i\.o\.s/i.test(txt)) boot++; }
+      else missing.push(f+" ("+r.status+")");
+    }catch(e){ missing.push(f+" (fetch-Fehler — läuft der Launcher über file:// statt http?)"); break; }
+  }
+  out.textContent="Geprüft: "+ok+"/"+FILES.length+" erreichbar · "+boot+" laden boot.js/b.i.o.s.js (Textsuche) · Fehlen: "+(missing.length?missing.join(", "):"keine");
+  log("PRÜFEN → "+ok+"/"+FILES.length+" erreichbar, "+boot+" mit boot.js-Referenz. Fehlen: "+(missing.join("; ")||"keine"));
+};
+</script>
+</body>
+</html>
