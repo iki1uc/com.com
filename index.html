@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NC FINAL — 729 CORE — ALTERNATIVE — DEIN GESCHMACK</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#050505;color:#dce8f4;font:14px/1.5 Consolas,monospace}
+header{padding:18px 20px;border-bottom:3px solid #00ff66;background:#000}
+h1{margin:0;font-size:28px;letter-spacing:.02em;color:#00ff66}h1 span{color:#ffd27a}
+.mana{color:#6cf;font-weight:800}.kalt{color:#fff;background:#111;border:1px solid #00ff66;padding:4px 8px}
+main{padding:16px;max-width:1600px;margin:auto}
+.panel{border:2px solid #222;background:#0a0a0a;padding:14px;margin-bottom:12px}
+.panel h2{margin:0 0 10px;color:#00ff66;font-size:16px;border-left:6px solid #00ff66;padding-left:8px}
+.small{color:#888;font-size:12px}.kpi{font-size:32px;color:#6cf;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+button{background:#111;color:#fff;border:2px solid #333;padding:9px 12px;font:inherit;cursor:pointer;border-radius:0}button:hover{border-color:#00ff66}
+button.primary{background:#00ff66;color:#000;font-weight:800}button.danger{border-color:#ff4444;color:#ff8888}
+input,select{background:#000;color:#fff;border:2px solid #333;padding:8px 10px;font:inherit;border-radius:0}
+table{border-collapse:collapse;width:100%;font-size:12px}th,td{padding:7px 9px;border-bottom:1px solid #222;text-align:right}th{background:#111;color:#6cf}td:first-child,th:first-child{text-align:left}
+#cube{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:4px;max-height:420px;overflow:auto}
+.cell{font-size:11px;padding:7px 3px;text-align:center;border:1px solid #333;background:#0a0a0a;cursor:pointer;color:#ddd}.cell:hover,.cell.active{border-color:#00ff66;background:#0f1f0f}.cell b{display:block;color:#6cf}
+#report,#log{white-space:pre-wrap;font-size:12px;max-height:280px;overflow:auto;background:#000;border:1px solid #222;padding:10px}
+.ok{color:#00ff66}.bad{color:#ff4444}.warn{color:#ffd27a}
+.m123-card{border:2px solid #333;padding:12px;background:#0a0a0a}.m123-bar{height:10px;background:#222;margin-top:6px}.m123-fill{height:100%;background:#00ff66}
+.m123-konsens{background:#0f2a0f;color:#00ff66}.m123-teil{background:#2a2300;color:#ffd27a}.m123-offen{background:#2a0000;color:#ff8888}
+.stellung{border:2px solid #ffd27a;padding:12px;background:#0a0a0a;margin-bottom:12px}.stellung b{color:#ffd27a}
+.leiter{height:6px;background:repeating-linear-gradient(90deg,#00ff66 0 20px,#000 20px 40px);margin:8px 0;opacity:.7}
+
+/* --- 729 Konflikt / Legende / Nachbarn / 3D --- */
+#cube{display:grid;grid-template-columns:repeat(9,1fr);gap:4px;perspective:900px}
+.cell{border:1px solid #333;padding:6px 2px;background:#111;color:#ddd;cursor:pointer;font-size:11px;line-height:1.2;transform:rotateX(0deg);transition:transform .15s, box-shadow .15s}
+.cell:hover{transform:translateZ(12px) scale(1.06);z-index:3}
+.cell b{display:block}
+.cell span{font-size:10px;opacity:.85}
+.cell.konsens{border-color:#00ff66;background:#0f240f}
+.cell.teil{border-color:#ffd700;background:#302a00}
+.cell.spannung{border-color:#ff9900;background:#3a2200}
+.cell.konflikt{border-color:#ff4444;background:#320000;box-shadow:0 0 8px #ff4444;animation:pulseConflict 1.2s infinite}
+.cell.neighbor{outline:2px solid #3399ff}
+.cell.active{outline:3px solid #ffffff;z-index:2;transform:translateZ(16px) scale(1.08)}
+@keyframes pulseConflict{0%,100%{box-shadow:0 0 4px #ff4444}50%{box-shadow:0 0 14px #ff4444}}
+.legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin:8px 0;font-size:13px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legendBox{display:inline-block;width:18px;height:18px;border:1px solid #555;vertical-align:middle}
+.legendBox.konsens{background:#00aa44}.legendBox.teil{background:#ffd700}.legendBox.spannung{background:#ff9900}.legendBox.konflikt{background:#ff4444}.legendBox.nachbar{background:#3399ff}.legendBox.aktiv{background:#ffffff}
+#posOut{font-weight:800;color:#ffd27a}
+</style></head>
+<body>
+<header><div class="small">OFFLINE · LOKAL · M1/M2/M3-EINTRÄGE LÖSCHBAR · PROTOKOLL SPEICHERT ALLE EINTRÄGE · KEIN AUTO-LÖSCHEN · KEIN BACKUP-LIMIT</div>
+<h1>NC FINAL <span>— 729 CORE — ALTERNATIVE</span></h1>
+<div><span class="mana">MANA sagt:</span> <span class="kalt">KALT</span> &nbsp; Stellung ist der Name. Kein steril. ROH.</div>
+<div class="leiter"></div>
+<div class="small">9 Identitäten · 81 Beziehungen · 729 Zellen · 1 TAB · 1 BOOT · 1 HALT · 1 Ergebnis</div></header>
+<main>
+
+<section class="panel" id="closed-com">
+  <h2>com.com — CLOSED · freundlich aber entschlossen</h2>
+  <p><strong>81 Läufer · 9 × 9 Kompendium = 81/81 = 100% = CLOSED · 27/27 Gruppen GESCHLOSSEN BEWUSST</strong> — nicht offen, nicht böse, nur fertig.</p>
+  <p>man.html + woman.html = life.html = alles mann = human</p>
+  <div class="controls">
+    <span class="tag">eye.record.html — CLOSED · freundlich</span>
+    <span class="tag">room.rec.html — CLOSED · aber entschlossen</span>
+    <span class="tag">net.link.html — CLOSED · ich bleib</span>
+    <span class="tag">os.sync.html — CLOSED</span>
+    <span class="tag">life.html — CLOSED · alles mann = human</span>
+    <span class="tag">b.i.o.s.js — CLOU · nicht gegen euch, nur für mich</span>
+  </div>
+  <p class="small">Dein Bruder weiß nicht = closed. Alles in HTML ist drinne. — RIDvan / iki9uc / HH.brain Hamburg St. Pauli Altona</p>
+</section>
+
+
+<section class="panel" id="pentagram-1ns">
+  <h2>PENTA.GRAM · 1NS — Navigation</h2>
+  <p>3 Codexe → 1 Sicht. BOOT → ANKER → HBT → CTRL → BUILD. HOME 40 steht. Diese Seite ist NC FINAL 729 CORE. Die volle 1NS-Startseite mit HBT-Prüfung + Vektor liegt in <code>pen_ta_gram_index.html</code>.</p>
+  <div class="controls" id="pentaPipeline">
+    <span class="tag">1 BOOT — co.d.ex · START</span><span class="tag">→</span>
+    <span class="tag">2 ANKER — co.d.e.q · FIXIEREN</span><span class="tag">→</span>
+    <span class="tag">3 HBT — co.dec · PRÜFEN</span><span class="tag">→</span>
+    <span class="tag">4 CTRL · STEUERN</span><span class="tag">→</span>
+    <span class="tag">5 BUILD · VERBAUEN</span>
+  </div>
+  <div class="controls" style="margin-top:10px">
+    <button class="primary" id="pentaCheck">1NS PRÜFEN (lokal)</button>
+    <span class="small" id="pentaOut">Noch nicht geprüft — HBT prüft nur lokale Daten in dieser Datei.</span>
+  </div>
+  <p class="small">H = HALT: da? · B = (stabil + konsistent + vollständig + nutzbar) / 4 · T = 1 Datei · 3 Modul · 9 Bereich · 81 Struktur · 729 Gesamtraum · READY = H 100 + B ≥ 75 + 0 Fehler. B = 75 reicht (3/4). Wenn alle 4 zwingend sein sollen, Schwelle auf 100.</p>
+</section>
+<script>
+(()=>{ const N=[
+ {id:"boot",title:"co.d.ex",role:"START",stabil:true,konsistent:true,vollstaendig:true,nutzbar:true,tiefe:81,url:"https://github.com/iki1uc/co.d.ex"},
+ {id:"anker",title:"co.d.e.q",role:"FIXIEREN",stabil:true,konsistent:true,vollstaendig:true,nutzbar:true,tiefe:81,url:"https://github.com/iki1uc/co.d.e.q"},
+ {id:"hbt",title:"co.dec",role:"PRÜFEN",stabil:true,konsistent:true,vollstaendig:true,nutzbar:true,tiefe:81,url:"https://github.com/iki1uc/co.dec"},
+ {id:"ctrl",title:"CTRL",role:"STEUERN",stabil:true,konsistent:true,vollstaendig:true,nutzbar:true,tiefe:729,url:"./ctrl/index.html",local:true},
+ {id:"build",title:"BUILD",role:"VERBAUEN",stabil:true,konsistent:true,vollstaendig:false,nutzbar:true,tiefe:729,url:"./build/index.html",local:true},
+ ];
+ function validate(n){ const errors=[]; if(!n) errors.push("HALT_EXISTS"); if(!n?.url) errors.push("URL_EXISTS"); if(!n?.role) errors.push("ROLE_EXISTS");
+  const checks=[["STABLE",n?.stabil],["CONSISTENT",n?.konsistent],["COMPLETE",n?.vollstaendig],["USABLE",n?.nutzbar]];
+  for(const [id,v] of checks) if(v!==true) errors.push(id);
+  if(![1,3,9,81,729].includes(n?.tiefe)) errors.push("DEPTH_VALID");
+  const B=Math.round(checks.filter(([,v])=>v===true).length/checks.length*100); const H=n?100:0; const T=n?.tiefe??null;
+  return {id:n?.id,title:n?.title,H,B,T,errors,ready:H===100&&B>=75&&errors.length===0}; }
+ const btn=document.getElementById("pentaCheck"), out=document.getElementById("pentaOut");
+ if(btn) btn.onclick=()=>{ const res=N.map(validate); const ready=res.filter(r=>r.ready).length;
+  out.textContent=`LOKALER STATUS — READY ${ready}/${res.length} · SYSTEM ${Math.round(ready/res.length*100)}% · `+res.map(r=>`${r.title} ${r.ready?"✓ READY":"⚠ NICHT READY — "+r.errors.join(", ")}`).join(" · ")+` · CTRL/BUILD: lokale Pfade, Existenz im Repo nicht verifiziert.`;
+  try{ if(typeof log==="function") log("PENTA.GRAM 1NS geprüft: READY "+ready+"/"+res.length); }catch(e){} };
+})();
+</script>
+
+<div class="stellung"><b>STELLUNG:</b> <input id="stellung" value="STELLUNG" style="border-color:#ffd27a;color:#ffd27a;width:min(320px,70%)"> <button onclick="state.stellung=$('stellung').value;$('stellungOut').textContent=state.stellung;persist();log('STELLUNG gesetzt: '+state.stellung)">STELLUNG SETZEN</button> &nbsp; Aktuell: <b id="stellungOut" style="color:#ffd27a">STELLUNG</b> &nbsp; <span class="small">HOME 40 · MITTE 41 · 1→3→9→81→729 · 729 ist Ende</span></div>
+
+<section class="grid"><div class="panel"><div class="small">IDENTITÄTEN</div><div class="kpi">9</div></div><div class="panel"><div class="small">2D-BASIS</div><div class="kpi">81</div></div><div class="panel"><div class="small">3D-RAUM</div><div class="kpi">729</div></div><div class="panel"><div class="small">PRÜFSTATUS</div><div class="kpi" id="headlineStatus">—</div><div class="small" id="headlineSub">Noch nicht geprüft</div></div></section>
+
+<section class="panel"><h2>01 · DIE NEUN — main</h2><div style="overflow:auto"><table><thead><tr><th>#</th><th>Identität</th><th>Operation</th><th>Tiefe</th></tr></thead><tbody id="identityRows"></tbody></table></div></section>
+
+<section class="panel"><h2>02 · 729-RAUM — main.board</h2>
+<div class="legend"><span><i class="legendBox konsens"></i>GRÜN = Konsens (Spread O ≤ 8)</span><span><i class="legendBox teil"></i>GELB = Teilkonsens (≤ 24)</span><span><i class="legendBox spannung"></i>ORANGE = Spannung (≤ 48)</span><span><i class="legendBox konflikt"></i>ROT = Konflikt (&gt; 48)</span><span><i class="legendBox nachbar"></i>BLAU = 26 Nachbarn</span><span><i class="legendBox aktiv"></i>WEISS = aktive Zelle</span></div>
+<p class="small">Konflikt = Spread über Oij / Oik / Ojk — NICHT über i/j/k. i/j/k ist nur Lage, O ist Wert.</p>
+<div><label>POSITION 0..728 <input id="posInput" type="number" min="0" max="728" value="40" style="width:90px"></label> <span id="posOut">Position 40</span> <button id="posGo">GEHE</button> <button id="posHome">HOME 40</button> <button id="posEnd">END 728</button></div>
+<p class="small">Tastatur (nicht in Eingabefeld): ← → ±1 · ↑ ↓ ±9 · PgUp/PgDn ±81 · Home 40 · End 728 · Klick auf Nachbar springt direkt.</p><p class="small">Zelle = (i,j,k). Oij=i·j, Oik=i·k, Ojk=j·k. Keine extra 3D-Formel.</p>
+<div><label>i <select id="filterI"><option value="all">Alle</option></select></label> <label>j <select id="filterJ"><option value="all">Alle</option></select></label> <label>k <select id="filterK"><option value="all">Alle</option></select></label> <button id="clearFilter">FILTER ZURÜCK</button></div>
+<p class="small" id="cellCount"></p><div id="cube"></div>
+<div class="panel" style="margin-top:10px"><h2>Ausgewählte Zelle</h2><div id="selectedCell">Noch keine Zelle.</div></div></section>
+
+<section class="panel"><h2>03 · 81er-MATRIX</h2><div><label>Schnitt k <select id="sliceK"></select></label> <label>t <input id="timeT" type="number" step="0.1" value="1" style="width:90px"></label> <button class="primary" id="renderMatrix">MATRIX BERECHNEN</button></div><p class="small">Basis i·j. Modulation: i·j + sin(t+i)·sin(t+j). Symmetrisch.</p><div style="overflow:auto;max-height:420px"><table id="matrix"></table></div></section>
+
+<section class="panel"><h2>04 · RECHENWERTE</h2><div class="grid"><div><h3>HBT</h3><div id="hbtResult"></div></div><div><h3>NC-SPIEGEL</h3><div id="mirrorResult"></div></div><div><h3>25-PRÜFUNG</h3><div id="cppResult"></div></div><div><h3>OCTA</h3><div id="octaResult"></div></div></div></section>
+
+<section class="panel"><h2>05 · M1 / M2 / M3 — AXIOM — main.board → mainboard</h2><p class="small">M1·M2·M3 → Ø → P100 = Ø×10 kontinuierlich → KONSENS → KOMPETENZ → VERBAUEN / WAIT</p>
+<div><button class="primary" id="m123Add">+ NEU</button> <button id="m123Export">JSON-EXPORT</button> <button id="m123Clear" class="danger">ALLE LÖSCHEN</button> <span class="small" id="m123Count"></span></div>
+<div id="m123Grid" class="grid" style="margin-top:10px"></div></section>
+
+<section class="panel"><h2>06 · VALIDATOR — mainboard</h2><div><button class="primary" id="runAudit">ALLE PRÜFUNGEN — KLICk</button> <button id="exportBtn">PRÜFBERICHT</button> <button id="backupBtn">BACKUP — OHNE LIMIT</button> <button id="downloadData">DATEN JSON</button></div><div id="auditSummary" class="small" style="margin:10px 0">Noch kein Audit. Nur per Klick.</div><div id="report">Prüfungen: 729 Adressen · Eindeutigkeit · Vollständigkeit · Paarprojektionen · 81 Basis · Symmetrie · Modulation · HBT · Spiegel · 25 · OCTA · M1/M2/M3.</div></section>
+
+<section class="panel"><h2>07 · PROTOKOLL — nur anhängen</h2><p class="small">Anzeige zeigt nur die letzten 200 Zeilen. Alle älteren Einträge bleiben gespeichert. Backup-Button erstellt ein Backup ohne Limit. Alte Backups werden nie automatisch verworfen.</p><button id="saveLog">PROTOKOLL SPEICHERN (NC-LOG.txt)</button> <span class="small" id="logCount"></span><div id="log">Start.</div></section>
+
+<div class="panel"><h2>UNTERSCHIED — 3 STÜCK</h2>
+<b>main</b> = Ist was da? → Eingabe &nbsp;|&nbsp; <b>main.board</b> = Wie gut? → M1/M2/M3 → P100 &nbsp;|&nbsp; <b>mainboard</b> = Was bleibt? → Kette zu → Gespeichert<br>
+<span class="small">main → main.board → mainboard · BUILD 3→1 · main ist Kern, main.board ist Messung, mainboard ist Verbaut.</span><br>
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})">BUILD 3→1 — ZURÜCK ZU main</button></div>
+
+<section class="panel" id="vector-tools" aria-label="Vektorwerkzeuge">
+  <h2>VEKTOR — TECHNIK · schaltbar</h2>
+  <p>Ursprung = HOME 40. Vektor = Richtung + Länge von HOME zu einer Station / Zelle. Gerade = Linie durch HOME + Vektor. Werte kommen aus dieser Datei: 9 Identitäten (1–9), 81 Matrix, 729 Zellen (i,j,k). Kein Auto-Run.</p>
+  <div class="controls">
+    <label for="vec-station">Station → Vektor (dx, dy)</label>
+    <select id="vec-station">
+      <option value="0, -222">BOOT — co.d.ex (oben)</option>
+      <option value="211, -69">ANKER — co.d.e.q (rechts)</option>
+      <option value="131, 180">BUILD (rechts unten)</option>
+      <option value="-131, 180">CTRL (links unten)</option>
+      <option value="-211, -69">HBT — co.dec (links)</option>
+      <option value="120, 70">FREI — 120, 70</option>
+    </select>
+    <label for="vector-value">Vektor dx, dy</label>
+    <input id="vector-value" value="0, -222" aria-label="Vektorkomponenten" style="width:130px">
+    <label for="vec-cell">Oder: NC-Zelle (i,j,k)</label>
+    <input id="vec-cell" value="1, 1, 1" aria-label="NC-Zelle" style="width:110px">
+    <button id="vec-from-cell" type="button">ZELLE → VEKTOR</button>
+  </div>
+  <div class="controls" style="margin-top:8px">
+    <button id="toggle-vector" type="button" aria-pressed="true">Vektor ausblenden</button>
+    <button id="toggle-line" type="button" aria-pressed="true">Gerade ausblenden</button>
+    <button id="toggle-grid" type="button" aria-pressed="true">Gitter ausblenden</button>
+  </div>
+  <div id="vector-stage" style="height:280px;overflow:hidden;border-radius:12px;background:radial-gradient(circle,#191428,#08080f);margin-top:12px">
+    <svg id="vector-svg" viewBox="0 0 600 600" role="img" aria-label="Vektor und Gerade ab HOME 40" style="width:100%;height:100%">
+      <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#7FE7FF"></path></marker></defs>
+      <g id="vec-grid" stroke="#ffffff14" stroke-width="1"></g>
+      <line id="the-line" x1="300" y1="300" x2="300" y2="78" stroke="#F2C94C" stroke-width="2" opacity=".8"></line>
+      <line id="the-vector" x1="300" y1="300" x2="300" y2="78" stroke="#7FE7FF" stroke-width="3" marker-end="url(#arrow)"></line>
+      <circle cx="300" cy="300" r="5" fill="#FF4FD8"></circle>
+      <text x="300" y="325" text-anchor="middle" fill="#fff" font-size="12">HOME 40</text>
+      <text id="vec-label" x="300" y="70" text-anchor="middle" fill="#7FE7FF" font-size="13"></text>
+    </svg>
+  </div>
+  <pre id="vec-out" style="margin-top:12px;white-space:pre-wrap">Noch nicht gerechnet.</pre>
+  <p class="small">Formel: |v| = √(dx² + dy²) · Gerade: P(t) = HOME + t · v · Zelle → Vektor: dx = (i−5)·40, dy = (k−5)·40 — Mitte (5,5,5) = HOME, Rand = max. Länge. Das ist Technik, keine neue NC-Formel.</p>
+</section>
+<script>
+(()=>{ const vector=document.getElementById("the-vector"), line=document.getElementById("the-line"), input=document.getElementById("vector-value");
+ const station=document.getElementById("vec-station"), out=document.getElementById("vec-out"), label=document.getElementById("vec-label"), grid=document.getElementById("vec-grid");
+ const OX=300, OY=300;
+ for(let x=0;x<=600;x+=50){ const l=document.createElementNS("http://www.w3.org/2000/svg","line"); l.setAttribute("x1",x); l.setAttribute("y1",0); l.setAttribute("x2",x); l.setAttribute("y2",600); grid.appendChild(l); }
+ for(let y=0;y<=600;y+=50){ const l=document.createElementNS("http://www.w3.org/2000/svg","line"); l.setAttribute("x1",0); l.setAttribute("y1",y); l.setAttribute("x2",600); l.setAttribute("y2",y); grid.appendChild(l); }
+ function updateVector(){
+  const vals=input.value.split(",").map(v=>Number(v.trim()));
+  if(vals.length!==2||vals.some(n=>!Number.isFinite(n))){ out.textContent="Ungültig — bitte als dx, dy eingeben, z.B. 0, -222"; return; }
+  const dx=vals[0], dy=vals[1]; const x2=OX+dx, y2=OY-dy;
+  vector.setAttribute("x2",x2); vector.setAttribute("y2",y2);
+  line.setAttribute("x1",OX-dx*1.2); line.setAttribute("y1",OY+dy*1.2); line.setAttribute("x2",OX+dx*1.2); line.setAttribute("y2",OY-dy*1.2);
+  label.setAttribute("x",x2); label.setAttribute("y",Math.max(18,y2-10)); label.textContent=`v = (${dx}, ${dy})`;
+  const len=Math.sqrt(dx*dx+dy*dy);
+  out.textContent=`Ursprung: HOME 40 (300, 300)\nVektor: v = (${dx}, ${dy})\nLänge: |v| = √(${dx}² + ${dy}²) = ${len.toFixed(2)}\nGerade: P(t) = HOME + t · v = (300 + t·${dx}, 300 - t·${dy}) [SVG-y invertiert]\nZiel: (${x2.toFixed(0)}, ${y2.toFixed(0)}) im SVG`;
+ }
+ function toggle(el,btn,name){ const hidden=el.style.display==="none"; el.style.display=hidden?"":"none"; btn.textContent=hidden?`${name} ausblenden`:`${name} einblenden`; btn.setAttribute("aria-pressed",String(hidden)); }
+ station.addEventListener("change",()=>{ input.value=station.value; updateVector(); });
+ input.addEventListener("input",updateVector);
+ document.getElementById("toggle-vector").addEventListener("click",e=>toggle(vector,e.target,"Vektor"));
+ document.getElementById("toggle-line").addEventListener("click",e=>toggle(line,e.target,"Gerade"));
+ document.getElementById("toggle-grid").addEventListener("click",e=>toggle(grid,e.target,"Gitter"));
+ document.getElementById("vec-from-cell").addEventListener("click",()=>{
+  const c=document.getElementById("vec-cell").value.split(",").map(v=>Number(v.trim()));
+  if(c.length!==3||c.some(n=>!Number.isInteger(n)||n<1||n>9)){ out.textContent="Zelle ungültig — bitte als i, j, k mit je 1–9, z.B. 1, 1, 1"; return; }
+  const dx=(c[0]-5)*40, dy=(c[2]-5)*40; input.value=`${dx}, ${dy}`; updateVector();
+  out.textContent+=`\nZelle: (${c[0]}, ${c[1]}, ${c[2]}) → Oij=${c[0]*c[1]}, Oik=${c[0]*c[2]}, Ojk=${c[1]*c[2]} · Vektor aus (i−5)·40, (k−5)·40`;
+ });
+ updateVector();
+})();
+</script>
+
+</main>
+<script>
+"use strict";
+const STORE="nc729.core.v1";
+const IDENTITIES=[["Ursprung","SETZEN"],["Polarität","SPIEGELN"],["Resonanz","VERBINDEN"],["Ordnung","STABILISIEREN"],["Wandel","WECHSELN"],["Verbindung","VERNETZEN"],["Erkenntnis","DURCHDRINGEN"],["Integration","VERSTÄRKEN"],["Vollendung","RÜCKKOPPELN"]];
+const OCTA=[["N","11","BIOS"],["NE","22","VERBUND"],["E","33","RECALL"],["SE","44","PEAK"],["S","55","KAISER_DRACHE"],["SW","66","RAM"],["W","77","CALC"],["NW","88+99","ROM_SYS"]];
+const $=id=>document.getElementById(id);
+const now=()=>new Date().toISOString();
+const pad=n=>String(n).padStart(2,"0");
+const hms=iso=>{const d=new Date(iso);return pad(d.getHours())+":"+pad(d.getMinutes())+":"+pad(d.getSeconds())};
+const ymd=iso=>new Date(iso).toLocaleDateString("sv-SE");
+let state=loadState(); if(state.position==null) state.position=40;
+function loadState(){try{const s=JSON.parse(localStorage.getItem(STORE));return{logs:Array.isArray(s?.logs)?s.logs:[],lastAudit:s?.lastAudit||null,stellung:typeof s?.stellung==="string"?s.stellung:"STELLUNG",position:typeof s?.position==="number"?s.position:40,backups:Array.isArray(s?.backups)?s.backups:[]}}catch{return{logs:[],lastAudit:null,stellung:"STELLUNG",position:40,backups:[]}}}
+function persist(){try{localStorage.setItem(STORE,JSON.stringify(state))}catch{}}
+function log(msg){state.logs.push({time:now(),msg});persist();renderLog()}
+const ncMirror=x=>15-x;
+const hbt=(H,B,T)=>{const Q=(H+B+T)/3;return{H,B,T,Q,F:Q/40}};
+const modValue=(i,j,t)=>i*j+Math.sin(t+i)*Math.sin(t+j);
+function triples(){const a=[];for(let i=1;i<=9;i++)for(let j=1;j<=9;j++)for(let k=1;k<=9;k++)a.push({i,j,k,id:`${i}-${j}-${k}`,ij:i*j,ik:i*k,jk:j*k});return a}
+const CELLS=triples();
+function init(){
+ $("stellung").value = state.stellung;
+ $("stellungOut").textContent = state.stellung;
+ $("stellung").addEventListener("input",()=>{state.stellung=$("stellung").value;$("stellungOut").textContent=state.stellung;persist();});
+ $("identityRows").innerHTML=IDENTITIES.map((x,n)=>`<tr><td>${n+1}</td><td>${x[0]}</td><td>${x[1]}</td><td>${n+1}</td></tr>`).join("");
+ for(let n=1;n<=9;n++){for(const id of ["filterI","filterJ","filterK","sliceK"]){const o=document.createElement("option");o.value=n;o.textContent=n;$(id).append(o)}}
+ $("sliceK").value="1";
+ for(const id of ["filterI","filterJ","filterK"])$(id).addEventListener("change",renderCube);
+ $("clearFilter").onclick=()=>{["filterI","filterJ","filterK"].forEach(id=>$(id).value="all");renderCube()};
+ $("posGo").onclick=()=>gotoPosition(Number($("posInput").value));$("posHome").onclick=()=>gotoPosition(40);$("posEnd").onclick=()=>gotoPosition(728);$("posInput").addEventListener("change",e=>gotoPosition(Number(e.target.value)));
+  document.addEventListener("keydown",e=>{if(e.target.matches("input,textarea,select"))return;switch(e.key){case "ArrowRight":moveSelection(+1);break;case "ArrowLeft":moveSelection(-1);break;case "ArrowUp":moveSelection(+9);break;case "ArrowDown":moveSelection(-9);break;case "PageUp":moveSelection(+81);break;case "PageDown":moveSelection(-81);break;case "Home":gotoPosition(40);break;case "End":gotoPosition(728);break;}});
+  $("renderMatrix").onclick=renderMatrix; $("sliceK").onchange=renderMatrix; $("timeT").onchange=renderMatrix;
+ $("runAudit").onclick=runAudit; $("backupBtn").onclick=backup; $("exportBtn").onclick=exportReport; $("downloadData").onclick=downloadData; $("saveLog").onclick=saveLog;
+ renderCube();renderMatrix();renderFacts(); log("NC-729 ALTERNATIVE gestartet. ROH. MANA kalt. Kein Auto-Audit.");
+}
+function getConflictLevel(cell){
+  const values=[cell.ij,cell.ik,cell.jk];
+  const spread=Math.max(...values)-Math.min(...values);
+  if(spread<=8) return "konsens";
+  if(spread<=24) return "teil";
+  if(spread<=48) return "spannung";
+  return "konflikt";
+}
+function conflictSpread(cell){return Math.max(cell.ij,cell.ik,cell.jk)-Math.min(cell.ij,cell.ik,cell.jk);}
+const TEST_DATA=[
+  {id:"KONSENS",i:4,j:4,k:4,expected:"konsens"},
+  {id:"TEIL",i:2,j:4,k:5,expected:"teil"},
+  {id:"SPANNUNG",i:2,j:5,k:7,expected:"spannung"},
+  {id:"KONFLIKT",i:1,j:9,k:9,expected:"konflikt"}
+];
+function neighbors(cell){const out=[];for(let di=-1;di<=1;di++)for(let dj=-1;dj<=1;dj++)for(let dk=-1;dk<=1;dk++){if(di===0&&dj===0&&dk===0)continue;const ni=cell.i+di,nj=cell.j+dj,nk=cell.k+dk;if(ni<1||ni>9||nj<1||nj>9||nk<1||nk>9)continue;out.push(`${ni}-${nj}-${nk}`);}return out;}
+function highlightNeighbors(id){const cell=CELLS.find(c=>c.id===id);if(!cell)return;const near=new Set(neighbors(cell));document.querySelectorAll(".cell").forEach(btn=>{btn.classList.remove("neighbor");if(near.has(btn.dataset.id))btn.classList.add("neighbor");});}
+function positionToCell(pos){const i=Math.floor(pos/81)+1,rest=pos%81,j=Math.floor(rest/9)+1,k=(rest%9)+1;return CELLS.find(c=>c.i===i&&c.j===j&&c.k===k);}
+function gotoPosition(pos){state.position=Math.max(0,Math.min(728,pos));const cell=positionToCell(state.position);if(!cell)return;const inp=$("posInput");if(inp)inp.value=state.position;const out=$("posOut");if(out)out.textContent=`Position ${state.position} → ${cell.id}`;selectCell(cell.id);log(`Navigation → ${cell.id}`);}
+function moveSelection(dx){gotoPosition((state.position??40)+dx);}
+function renderCube(){const f=(id,v)=>$(id).value==="all"||Number($(id).value)===v;const visible=CELLS.filter(c=>f("filterI",c.i)&&f("filterJ",c.j)&&f("filterK",c.k));$("cellCount").textContent=`${visible.length} / 729 Zellen`; $("cube").innerHTML=visible.map(c=>{const level=getConflictLevel(c);return `<button class="cell ${level}" data-id="${c.id}" title="${c.id} · Oij=${c.ij} Oik=${c.ik} Ojk=${c.jk} · Spread=${conflictSpread(c)} · ${level.toUpperCase()}"><b>${c.id}</b><span>${c.ij} · ${c.ik} · ${c.jk}</span></button>`;}).join("");$("cube").querySelectorAll(".cell").forEach(b=>b.onclick=()=>selectCell(b.dataset.id));if(state.position!=null){const cur=positionToCell(state.position);if(cur)highlightNeighbors(cur.id);}}
+function selectCell(id){const c=CELLS.find(x=>x.id===id);if(!c)return;const idx=(c.i-1)*81+(c.j-1)*9+(c.k-1);state.position=idx;const inp=$("posInput");if(inp)inp.value=idx;const out=$("posOut");if(out)out.textContent=`Position ${idx} → ${c.id}`;$("selectedCell").innerHTML=`<strong>${c.id}</strong> — (i=${c.i}, j=${c.j}, k=${c.k})<br>Oij=${c.ij} · Oik=${c.ik} · Ojk=${c.jk} · Spread=${conflictSpread(c)} · <b>${getConflictLevel(c).toUpperCase()}</b><br>Nachbarn: ${neighbors(c).length} (26 max, am Rand weniger) — blau markiert. Klick auf Nachbar springt direkt.`;$("cube").querySelectorAll(".cell").forEach(b=>b.classList.toggle("active",b.dataset.id===id));highlightNeighbors(id);}
+function renderMatrix(){
+  const k = Number($("sliceK").value);
+  const inputT = Number($("timeT").value);
+  const t = Number.isFinite(inputT) ? inputT : 0;
+  let h = `<thead><tr><th>i/j \u00b7 k=${k}</th>${Array.from({length:9},(_,n)=>`<th>${n+1}</th>`).join("")}</tr></thead><tbody>`;
+  for(let i=1;i<=9;i++){
+    h += `<tr><th>${i}</th>`;
+    for(let j=1;j<=9;j++){
+      const base = i*j;
+      const mod = base + k*Math.sin(t+i)*Math.sin(t+j);
+      h += `<td title="Basis ${base}; Modulation ${mod.toFixed(6)}">${base}<br><span class="small">${mod.toFixed(2)}</span></td>`;
+    }
+    h += "</tr>";
+  }
+  $("matrix").innerHTML = h + "</tbody>";
+}
+function renderFacts(){const r=hbt(40,41,90);$("hbtResult").innerHTML=`H=${r.H} B=${r.B} T=${r.T}<br>Q=${r.Q.toFixed(1)} F=${r.F.toFixed(3)}`;const ok=Array.from({length:14},(_,n)=>n+1).every(x=>ncMirror(ncMirror(x))===x);$("mirrorResult").innerHTML=`NC(x)=15−x<br>NC(NC(x))=x: ${ok?"OK":"FEHLER"}`;$("cppResult").innerHTML=`1+3+5+7+9=25<br>5×5=25`;$("octaResult").innerHTML=`${OCTA.length} Richtungen<br>${new Set(OCTA.map(x=>x[1])).size} Codes<br>HUB: 00`;}
+function test(name,fn){try{const d=fn();return{name,ok:d===true,detail:d===true?"bestanden":String(d)}}catch(e){return{name,ok:false,detail:e.message}}}
+const M123_STORE="m123";
+function m123Id(){return (crypto&&crypto.randomUUID)?crypto.randomUUID():`m123-${Date.now()}-${Math.random().toString(16).slice(2)}`}
+function m123Validate(it){return !!it&&typeof it.id==="string"&&["m1","m2","m3"].every(k=>typeof it[k]==="number"&&it[k]>=0&&it[k]<=10)}
+function m123Load(){try{const x=JSON.parse(localStorage.getItem(M123_STORE)||"null");return Array.isArray(x)&&x.every(m123Validate)?x:[{id:m123Id(),m1:8,m2:7,m3:9}]}catch{return[{id:m123Id(),m1:8,m2:7,m3:9}]}}
+let m123Entries=m123Load();
+function m123P100(a,b,c){const av=(a+b+c)/3;return{average:av,value:av*10}}
+function m123Consensus(a,b,c){if(a===b&&b===c)return{text:"KONSENS",className:"m123-konsens"};if(a===b||b===c||a===c)return{text:"TEILKONSENS",className:"m123-teil"};return{text:"OFFEN",className:"m123-offen"}}
+function m123Gate(a,b,c){const s=[a,b,c].filter(v=>v>=7).length;return{score:s,build:s===3}}
+function m123Save(){try{localStorage.setItem(M123_STORE,JSON.stringify(m123Entries))}catch{}}
+function m123Card(e,i){const c=m123Consensus(e.m1,e.m2,e.m3),g=m123Gate(e.m1,e.m2,e.m3),p=m123P100(e.m1,e.m2,e.m3);return `<article class="m123-card" data-card-id="${e.id}"><h3>AXIOM ${i+1}</h3>${["m1","m2","m3"].map((k,j)=>`<div style="display:flex;gap:8px;align-items:center;margin:6px 0"><label>M${j+1}</label><input type="range" min="0" max="10" step="1" value="${e[k]}" data-id="${e.id}" data-key="${k}" style="flex:1"><output>${e[k]}</output></div>`).join("")}<div class="m123-average" data-m123-average>Ø ${p.average.toFixed(1)} · P100 ${p.value.toFixed(0)}%</div><div class="m123-bar"><div class="m123-fill" data-m123-fill style="width:${p.value}%"></div></div><div class="m123-consensus ${c.className}" data-m123-consensus style="padding:6px;text-align:center;font-weight:800;margin-top:6px">${c.text}</div><div class="m123-gate" data-m123-gate style="font-weight:800;margin-top:6px">KOMPETENZ ${g.score}/3 · ${g.build?"VERBAUEN":"WAIT"}</div><button data-del-id="${e.id}" style="width:100%;margin-top:8px">LÖSCHEN</button></article>`}
+function m123Render(){$("m123Count").textContent=`${m123Entries.length} Einträge`; $("m123Grid").innerHTML=m123Entries.map(m123Card).join("");}
+function m123Init(){$("m123Add").onclick=()=>{m123Entries.push({id:m123Id(),m1:5,m2:5,m3:5});m123Save();m123Render();log("M1/M2/M3: NEU")};$("m123Export").onclick=()=>{log("M1/M2/M3 exportiert");download("m123.json",JSON.stringify(m123Entries,null,2))};$("m123Clear").onclick=()=>{if(confirm("Alle M1/M2/M3 löschen? Protokoll bleibt.")){log("M1/M2/M3: alle gelöscht");m123Entries=[];m123Save();m123Render()}};$("m123Grid").addEventListener("input",e=>{const slider=e.target;if(!slider.matches("[data-key]"))return;const id=slider.dataset.id;const key=slider.dataset.key;const value=Number(slider.value);const entry=m123Entries.find(x=>x.id===id);if(!entry)return;entry[key]=value;m123Save();const card=slider.closest(".m123-card");if(!card)return;const output=slider.parentElement.querySelector("output");if(output)output.value=value;const p=m123P100(entry.m1,entry.m2,entry.m3);const consensus=m123Consensus(entry.m1,entry.m2,entry.m3);const gate=m123Gate(entry.m1,entry.m2,entry.m3);const avg=card.querySelector("[data-m123-average]");if(avg)avg.textContent=`Ø ${p.average.toFixed(1)} · P100 ${p.value.toFixed(0)}%`;const fill=card.querySelector("[data-m123-fill]");if(fill)fill.style.width=`${p.value}%`;const cb=card.querySelector("[data-m123-consensus]");if(cb){cb.textContent=consensus.text;cb.className=`m123-consensus ${consensus.className}`;}const gt=card.querySelector("[data-m123-gate]");if(gt)gt.textContent=`KOMPETENZ ${gate.score}/3 · ${gate.build?"VERBAUEN":"WAIT"}`;/* bewusst KEIN m123Render() hier - sonst springt der Slider zurück */});
+$("m123Grid").addEventListener("click",e=>{const b=e.target.closest("[data-del-id]");if(!b)return;const id=b.dataset.delId;const i=m123Entries.findIndex(x=>x.id===id);if(i<0)return;m123Entries.splice(i,1);m123Save();m123Render();log("M1/M2/M3: Eintrag gelöscht")});m123Render();}
+function runAudit(){const results=[];results.push(test("729 Zellen",()=>CELLS.length===729));results.push(test("729 eindeutige Adressen",()=>new Set(CELLS.map(c=>c.id)).size===729));results.push(test("Oij=i·j etc.",()=>CELLS.every(c=>c.ij===c.i*c.j&&c.ik===c.i*c.k&&c.jk===c.j*c.k)));results.push(test("Modulation symmetrisch",()=>{for(const t of [0,1,2])for(let i=1;i<=9;i++)for(let j=1;j<=9;j++)if(Math.abs(modValue(i,j,t)-modValue(j,i,t))>1e-12)return "fail";return true}));results.push(test("HBT Q=57 F=1.425",()=>{const r=hbt(40,41,90);return r.Q===57&&Math.abs(r.F-1.425)<1e-12}));results.push(test("Spiegel Involution 1-14",()=>Array.from({length:14},(_,n)=>n+1).every(x=>ncMirror(ncMirror(x))===x)));results.push(test("1+3+5+7+9=25",()=>{const s=[1,3,5,7,9].reduce((a,b)=>a+b,0);return s===25}));results.push(test("OCTA 8/8",()=>OCTA.length===8&&new Set(OCTA.map(x=>x[1])).size===8));results.push(test("P100 = Ø×10",()=>{const p=m123P100(8,7,9);return p.average===8&&p.value===80}));results.push(test("Konsens",()=>m123Consensus(5,5,5).text==="KONSENS"&&m123Consensus(5,5,4).text==="TEILKONSENS"));results.push(test("Konflikt-Testdaten (4 Sätze, Oij/Oik/Ojk)",()=>{return TEST_DATA.every(t=>{const cell={i:t.i,j:t.j,k:t.k,ij:t.i*t.j,ik:t.i*t.k,jk:t.j*t.k};const got=getConflictLevel(cell);if(got!==t.expected)return "FAIL "+t.id+": got "+got+", expected "+t.expected+", spread "+conflictSpread(cell);return true;});}));
+  results.push(test("Konflikt: i/j/k-Lage allein zählt NICHT (gleiche Lage, andere O = anderer Level möglich)",()=>{const a={ij:16,ik:16,jk:16},b={ij:1,ik:9,jk:81};return getConflictLevel(a)==="konsens"&&getConflictLevel(b)==="konflikt";}));
+  results.push(test("Nachbarn: Mitte = 26, Ecke = 7",()=>{const mid=CELLS.find(c=>c.id==="5-5-5"),corner=CELLS.find(c=>c.id==="1-1-1");return neighbors(mid).length===26&&neighbors(corner).length===7;}));
+  results.push(test("Gate 3/3",()=>m123Gate(7,7,7).build&&!m123Gate(7,7,6).build));
+  results.push(test("M1/M2/M3: gespeicherte Einträge gültig (0-10, ID vorhanden)",()=>{if(!Array.isArray(m123Entries))return "m123Entries ist kein Array";for(const it of m123Entries){if(!m123Validate(it))return "Ungültiger Eintrag: "+JSON.stringify(it);}return true;}));
+  results.push(test("M1/M2/M3: IDs eindeutig",()=>{const ids=m123Entries.map(x=>x.id);return new Set(ids).size===ids.length||"Doppelte ID gefunden";}));
+  results.push(test("M1/M2/M3: keine leeren / NaN Werte",()=>{for(const it of m123Entries){for(const k of ["m1","m2","m3"]){if(typeof it[k]!=="number"||!Number.isFinite(it[k]))return "NaN / kein Wert in "+it.id;}}return true;}));
+const pass=results.filter(r=>r.ok).length,ok=pass===results.length;state.lastAudit={time:now(),pass,all:results.length,ok,results};persist();$("headlineStatus").textContent=ok?"OK":"FEHLER";$("headlineStatus").style.color=ok?"#00ff66":"#ff4444";$("headlineSub").textContent=`${pass}/${results.length} bestanden`; $("auditSummary").innerHTML=`<span class="${ok?"ok":"bad"}">${ok?"ALLE BESTANDEN":"FEHLER"}</span> · ${pass}/${results.length}`;$("report").textContent=results.map(r=>`${r.ok?"[OK]":"[FEHLER]"} ${r.name} — ${r.detail}`).join("\n")+`\n\nERGEBNIS: ${pass}/${results.length}`;log(`Audit: ${pass}/${results.length} ${ok?"OK":"FEHLER"}`);}
+function backup(){const copy=JSON.parse(JSON.stringify({logs:state.logs,lastAudit:state.lastAudit,stellung:state.stellung,m123:m123Entries}));if(!Array.isArray(state.backups))state.backups=[];state.backups.push({time:now(),state:copy});/* bewusst KEIN slice(-10), KEIN Limit - alte Backups bleiben */persist();log("Backup erstellt ("+state.backups.length+" Backups gespeichert, ohne Limit)");download("NC_729_Backup.json",JSON.stringify({version:1,state:copy},null,2));}
+function download(name,content,type="application/json"){const url=URL.createObjectURL(new Blob([content],{type})),a=document.createElement("a");a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+function exportReport(){if(!state.lastAudit){alert("Zuerst Audit klicken.");return}log("Prüfbericht exportiert");download("NC_729_Pruefbericht.json",JSON.stringify(state.lastAudit,null,2))}
+function downloadData(){log("Daten exportiert");download("NC_729_Daten.json",JSON.stringify({version:1,identities:IDENTITIES,cells:CELLS,state},null,2))}
+function saveLog(){log("Protokoll gespeichert");const text=state.logs.map(l=>`${ymd(l.time)} ${hms(l.time)} | ${l.msg}`).join("\n")+"\n";download("NC-LOG.txt",text,"text/plain;charset=utf-8");}
+function renderLog(){const show=state.logs.slice(-200);$("log").textContent=show.length?show.map(l=>`${hms(l.time)} | ${l.msg}`).join("\n"):"Noch keine Ereignisse.";$("logCount").textContent=`${state.logs.length} Einträge gespeichert · Anzeige nur letzte ${show.length} · Ältere bleiben gespeichert, werden nicht gelöscht`;}
+m123Init();init();
+</script></body></html>
