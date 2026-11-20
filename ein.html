@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ein.html — EINE Datei in alle</title>
+<style>body{margin:0;background:#050507;color:#e8f0e8;font-family:ui-monospace,Menlo,Consolas,monospace} .wrap{max-width:900px;margin:0 auto;padding:20px} button{background:#00ff88;border:0;border-radius:8px;padding:11px 16px;font-weight:800;cursor:pointer;font-family:inherit} button.ghost{background:#0a0f0c;color:#e8f0e8;border:1px solid #1a2e22} code{background:#000;padding:2px 6px;color:#00ff88} .dim{color:#7a8f80;font-size:11px;line-height:1.6}</style></head>
+<body><div class="wrap">
+<h1>ein.html — EINE Datei, die in alle reinpasst</h1>
+<p class="dim">So geht es in JEDER Datei — apfel, eye, man, raid, setup, src, server. Nur diese EINE Zeile, sonst nichts:</p>
+<pre><code>&lt;script src="./com.js"&gt;&lt;/script&gt;</code></pre>
+<p class="dim">com.js erkennt selbst, in welcher Datei es steckt (apfel / eye / man / raid / setup / src / server), hängt oben den richtigen Banner an, unten die /7-Nav, und macht INNEN / AUSSEN / CHECK richtig. Kein Copy-Paste pro Datei mehr.</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap">
+<button onclick="com.innen()">▶ INNEN</button>
+<button onclick="com.aussen()" style="background:#22f2ff">▶ AUSSEN</button>
+<button class="ghost" onclick="com.check()">CHECK</button>
+</div>
+<p class="dim">Datei umbenennen → anderer Banner. Gleiche com.js. Das ist der CLOU.</p>
+</div>
+<script src="./com.js"></script>
+</body></html>
